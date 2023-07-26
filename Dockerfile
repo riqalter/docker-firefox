@@ -16,7 +16,7 @@ RUN \
     FIREFOX_VERSION=$(curl -sL "http://dl-cdn.alpinelinux.org/alpine/v3.18/community/x86_64/APKINDEX.tar.gz" | tar -xz -C /tmp \
     && awk '/^P:firefox$/,/V:/' /tmp/APKINDEX | sed -n 2p | sed 's/^V://'); \
   fi && \
-  apk add --no-cache \
+  apk add --no-cache apk add font-terminus font-noto font-noto-thai font-noto-tibetan font-ipa font-sony-misc font-jis-misc font-isas-misc \
     firefox==${FIREFOX_VERSION} && \
   sed -i 's|</applications>|  <application title="Mozilla Firefox" type="normal">\n    <maximized>yes</maximized>\n  </application>\n</applications>|' /etc/xdg/openbox/rc.xml && \
   echo "**** default firefox settings ****" && \
