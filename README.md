@@ -106,7 +106,7 @@ Here are some example snippets to help you get started creating a container.
 version: "2.1"
 services:
   firefox:
-    image: lscr.io/linuxserver/firefox:latest
+    image: ghcr.io/riqalter/docker-firefox:latest
     container_name: firefox
     security_opt:
       - seccomp:unconfined #optional
@@ -117,7 +117,7 @@ services:
     volumes:
       - /path/to/config:/config
     ports:
-      - 3000:3000
+      - 3003:3000
       - 3001:3001
     shm_size: "1gb"
     restart: unless-stopped
@@ -132,12 +132,12 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Etc/UTC \
-  -p 3000:3000 \
+  -p 3003:3000 \
   -p 3001:3001 \
   -v /path/to/config:/config \
   --shm-size="1gb" \
   --restart unless-stopped \
-  lscr.io/linuxserver/firefox:latest
+  ghcr.io/riqalter/docker-firefox:latest
 
 ```
 
